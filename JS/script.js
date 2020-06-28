@@ -110,7 +110,7 @@ const text_russian = [
 	'Сервисы',
 	'Портфолио',
 	'Контакт',
-	'Веб-дизайн',
+	'Создание Веб Сайтов',
 	'Вы не только выбираете нас, но мы также выбираем вас. Мы выбираем только амбициозные и целенаправленные проекты, чтобы мы могли вместе радоваться общим достижениям.',
 	'Веб-программирование',
 	'Дизайн',
@@ -162,7 +162,7 @@ const text_in_english = [
 	'Services',
 	'Portfolio',
 	'Contact',
-	'Web Site Design',
+	'Website Creation',
 	'Not only do you choose us, but we also choose you. We choose only ambitious and targeted projects, in order to rejoice in common achievements.',
 	'Web Site Design',
 	'Design',
@@ -247,3 +247,4 @@ const text_in_english = [
 		let returnObj = JSON.parse(localStorage.getItem("change_language_key"));
 	}
 })();
+
