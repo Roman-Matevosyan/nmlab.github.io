@@ -345,7 +345,7 @@ body {
 .section1 .flag-dropdown-menu {
 	max-width: 45px;
 	display: none;
-	padding: 5px;
+	padding: 0 5px 5px 5px;
 	background: #1d4774;
 }
 .section1 .flag-dropdown-menu li {
@@ -353,11 +353,11 @@ body {
 }
 .section1 .flag-image-block {
 	display: flex;
-	margin: 0 auto;
 	border: none;
 	padding: unset;
 	outline: none;
 	cursor: pointer;
+	margin-top: 5px;
 }
 .section1 .navbar-nav {
   align-items: baseline;
@@ -542,7 +542,7 @@ body {
 	padding: 5px;
 }
 .section4 .header span:first-child {
-    font-size: 3.8vw;
+    font-size: 3.5vw;
     line-height: 80px;
     border-bottom: 2px solid white;
     color: darkgreen;

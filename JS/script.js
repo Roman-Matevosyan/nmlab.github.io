@@ -2,7 +2,7 @@ $(document).ready( function(){
 	// smooth scroll
 	$( document ).ready(function() {
 		$('.navbar a').on('click', function(event) {
-			if(this.hash !== ''){
+			if(this.hash !== '') {
 				event.preventDefault();
 				const hash = this.hash;
 				$('html, body').animate({
@@ -14,11 +14,12 @@ $(document).ready( function(){
 	});
 
 	// Dropdown flag-menu _ hide-show 
-	$('.flag-dropdown-btn').click( function(event){
+	$('.flag-dropdown-btn').on('click', function(event){
 	    event.stopPropagation();
 	    $('.flag-dropdown-menu').toggle();
 	});
-	$(document).click( function(){
+
+	$(document).on('click', function() {
 	    $('.flag-dropdown-menu').hide();
 	});
 
@@ -27,22 +28,28 @@ $(document).ready( function(){
 	if (!window.Cypress) {
 	    const scrollCounter = document.querySelector('.js-scroll-counter');
 
-	    AOS.init({
-	        mirror: true
-	    });
+	    try {
+			AOS.init({ mirror: true });
+		} catch (e) {
+			e.message;
+		}
 
-	    document.addEventListener('aos:in', function(e) {
-	        console.log('in!', e.detail);
-	    });
+		// document.addEventListener('aos:in', function(e) {
+		// 	console.log('in!', e.detail);
+		// });
 
-	    window.addEventListener('scroll', function() {
-	        scrollCounter.innerHTML = window.pageYOffset;
-	    });
+		window.addEventListener('scroll', function() {
+			try {
+				scrollCounter.innerHTML = window.pageYOffset;
+			} catch (e) {
+				e.message;
+			}
+		});
 	}
 
 });
 
-changeable_text = $('.changeable');
+const changeable_text = $('.changeable');
 
 const text_armenian = [
 	'Պորտֆոլիո',
@@ -94,6 +101,58 @@ const text_armenian = [
 	'Սպասարկման բարձր մակարդակ',
 	'Մենք միշտ կապի մեջ ենք',
 	'ք. Երևան, Կորյունի 19Ա.'
+];
+
+const text_russian = [
+	'Портфолио',
+	'Домой',
+	'О нас',
+	'Сервисы',
+	'Портфолио',
+	'Контакт',
+	'Веб-дизайн',
+	'Вы не только выбираете нас, но мы также выбираем вас. Мы выбираем только амбициозные и целенаправленные проекты, чтобы мы могли вместе радоваться общим достижениям.',
+	'Веб-программирование',
+	'Дизайн',
+	'ИТ-аутсорсинг',
+	'Аудит',
+	'Рекламное объявление',
+	'Цифровой маркетинг',
+	'Создание сайтов является ключевой особенностью работы нашей компании. Более 30 выполненных проектов и собственный штат разработчиков. Наша задача - создавать интернет-ресурсы, находить решения, связанные с веб-разработкой для различных сфер бизнеса. Большинство клиентов, которые сотрудничают с нами, когда нам нужны такие услуги, обращаются к нам снова. Наша главная цель - предоставлять абсолютно любые услуги в области веб-технологий.',
+	'Наши сервисы',
+	'Разработка, трансформация и реконструкция сайта (редизайн сайта, реинжиниринг, разработка).',
+	'Наши дизайнеры и программисты работают над рядом американских, российских и европейских проектов. Мы заверяем вас, что европейские тренды достигают нас мгновенно, а не годами ...',
+	'Основная цель сайта - дать посетителю максимум информации за короткое время.',
+	'Клиент не должен тратить время на поиск элементов управления, это может вызвать разочарование на сайте. Дизайн сайта, созданный нами, хорошо продуман и служит удобству посетителя .',
+	'Сайты любой сложности (деловые, офисные, личные, рекламные, туристические и др.) ...',
+	'Мы выполняем работы в короткие и определенные сроки, по доступным ценам, показываем особый подход к каждому покупателю, даем предварительные эскизы, разработанные нашими дизайнерами несколькими способами, которые отвечают требованиям заказчика ...',
+	'Разработка сайтов, интернет-бизнес-программ, разработка интернет-магазинов с нуля.',
+	'Наше предложение для тех, кто хочет иметь качественный сайт без помощи наших специалистов, чтобы управлять сайтом без крупных инвестиций.',
+	'В наш информационный век невозможно представить бизнес, который может получить прибыль, не имея визитной карточки в Интернете.',
+	'Красивый и умный сайт поможет вам расширить свой бизнес, привлечь новых клиентов, представить продукты миру.',
+	'Если клиент видит отзывы с веб-сайтов и возврат капитала, он систематически развивает свой проект.',
+	'Подготовка сайтов в нашей стране требует нескольких отдельных сервисов, которые не являются частью концепции программирования сайтов, но имеют большое значение для продвижения бизнеса в Интернете ...',
+	'Портфолио',
+	'Компания предлагает своим клиентам комплексные веб-сервисы без посредников (и фрилансеры): разработка и продвижение сайтов, разработка онлайн-магазинов кредитования, онлайн-бизнес-приложений и CRM-системы. Клиенты веб-сайта получают не только защищенный авторским правом дизайн, специализированное программирование, регистрацию домена и хостинг, но и бесплатное пополнение ресурсов, поисковую оптимизацию, первичное продвижение, обслуживание, обучение управлению сайтом, настройки контекстной рекламы и сопровождение.',
+	'Просмотр выполненной работы',
+	'Посмотреть',
+	'Просмотр выполненной работы',
+	'Посмотреть',
+	'Посмотреть',
+	'Посмотреть',
+	'Просмотр выполненной работы',
+	'Просмотр выполненной работы',
+	'Зачем работать с нами?',
+	'Только амбициозные проекты',
+	'24/7 сервис',
+	'Индивидуальный подход',
+	'Применение инновационных технологий',
+	'Бесплатная консультация',
+	'Бесплатный аудит и отчет',
+	'Ваш проект - наша гордость, зеркало',
+	'Высокий уровень сервиса',
+	'Мы всегда на связи',
+	'С. Ереван, ул. А. Корюна 19.',
 ];
 
 const text_in_english = [
@@ -150,50 +209,41 @@ const text_in_english = [
 
 
 (function () {
-	let flagChange = 'armenian_language';
+	const languageArr = ['armenian_language', 'english_language', 'russian_language'];
+	const flag_images = ['Flag_of_Armenia', 'Flag_of_the_United_States', 'Flag_of_Russia'];
+	const text_languages = [text_armenian, text_in_english, text_russian];
+	let flagChange = languageArr[0];
 
-	if (JSON.parse(localStorage.getItem("change_language_key"))){
+	if (JSON.parse(localStorage.getItem("change_language_key"))) {
 		let change_language_key = JSON.parse(localStorage.getItem("change_language_key"));
 		flagChange = change_language_key.editableTextField;
 	}
 
-	saveLocalStorage();
-
-	$('.flag-image-block').click(function () {
-		if (flagChange === 'armenian_language') {
-			flagChange = 'english_language';
-			saveLocalStorage();
-		} else if (flagChange === 'english_language') {
-			flagChange = 'armenian_language';
-			saveLocalStorage();
+	languageArr.forEach((el, i) => {
+		if (flagChange === el) {
+			saveLocalStorage(el, i);
 		}
-	});
+		$(`#${el}`).on('click', () => {
+			saveLocalStorage(el, i);
+		})
+	})
 
-	function saveLocalStorage () {
-		if (flagChange === 'english_language') {
-			$(".flag-dropdown-btn img").attr("src", "./IMAGES/flag-images/Flag_of_the_United_States.jpg");
-			$('.flag-image-block img').attr("src", "./IMAGES/flag-images/Flag_of_Armenia.jpg");
-			for (let i = 0; i < text_armenian.length; i++) {
-				changeable_text[i].innerText = text_in_english[i];
-			}
-		} else if (flagChange === 'armenian_language') {
-			
-			$(".flag-dropdown-btn img").attr("src", "./IMAGES/flag-images/Flag_of_Armenia.jpg");
-			$('.flag-image-block img').attr("src", "./IMAGES/flag-images/Flag_of_the_United_States.jpg");
-			for (let i = 0; i < text_armenian.length; i++) {
-				changeable_text[i].innerText = text_armenian[i];
-			}
-		}
+	function saveLocalStorage (text_in_language, imgIndex) {
+		$(".flag-dropdown-btn img").attr("src", `./IMAGES/flag-images/${flag_images[imgIndex]}.jpg`);
 
-		let obj = {
-			editableTextField: flagChange
-		};
+		languageArr.forEach((el, i) => {
+			if (text_in_language === el) {
+				text_armenian.forEach((el, j) => {
+					$(changeable_text[j]).text(text_languages[i][j]);
+				})
+				flagChange = text_in_language;
+			}
+		})
+
+		let obj = { editableTextField: flagChange };
 
 		let serialObj = JSON.stringify(obj);
 		localStorage.setItem("change_language_key", serialObj);
 		let returnObj = JSON.parse(localStorage.getItem("change_language_key"));
 	}
 })();
-
-
-
